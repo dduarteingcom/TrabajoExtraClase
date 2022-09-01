@@ -16,7 +16,7 @@ public class EstudiantesA extends Estudiantes{
     @Override
     public String notaFinal(int promExam,int promQuices,int promTareas,int notaPro1,int notaPro2,int notaPro3){
         int res = 0;
-        res = ((promExam + promExam + promTareas + notaPro1 + notaPro2 + notaPro3)/6);
+        res = (promExam + promExam + promTareas + notaPro1 + notaPro2 + notaPro3)/6;
         return Integer.toString(res);
     }
 }

@@ -1,11 +1,5 @@
 package com.example.trabajoextraclase;
 
-
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -13,16 +7,19 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class HelloController implements Initializable{
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class HelloController implements Initializable {
 
     @FXML
-    private TableColumn<Estudiantes, String> Carne;
+    private TableColumn<Estudiantes, String>Carne;
 
     @FXML
     private TableColumn<Estudiantes, String> Correo;
 
     @FXML
-    private TableColumn<Estudiantes, String> Nickname;
+    private TableColumn<Estudiantes, String>Nickname;
 
     @FXML
     private TableColumn<Estudiantes, String> Nombre;
@@ -37,7 +34,13 @@ public class HelloController implements Initializable{
     private TableColumn<Estudiantes, String> NotaPro3;
 
     @FXML
+    private TableColumn<Estudiantes, String> PromEQT;
+
+    @FXML
     private TableColumn<Estudiantes, String> PromExam;
+
+    @FXML
+    private TableColumn<Estudiantes, String> PromProyecto;
 
     @FXML
     private TableColumn<Estudiantes, String> PromQuices;
@@ -54,8 +57,11 @@ public class HelloController implements Initializable{
     @FXML
     private TableColumn<Estudiantes, String> TipoEstud;
 
+    @FXML
+    private TableColumn<Estudiantes, String> nFinal;
 
-
+    @FXML
+    private Label welcomeText;
     public void initialize(URL url, ResourceBundle resourceBundle){
 
 
@@ -71,6 +77,9 @@ public class HelloController implements Initializable{
         PromTares.setCellValueFactory(new PropertyValueFactory<Estudiantes,String>( "promTareas"));
         Telefono.setCellValueFactory(new PropertyValueFactory<Estudiantes,String>( "telefono"));
         TipoEstud.setCellValueFactory(new PropertyValueFactory<Estudiantes,String>( "tipoEstud"));
+        PromProyecto.setCellValueFactory(new PropertyValueFactory<Estudiantes,String>( "promProyecto"));
+        PromEQT.setCellValueFactory(new PropertyValueFactory<Estudiantes,String>( "promEQT"));
+        nFinal.setCellValueFactory(new PropertyValueFactory<Estudiantes,String>( "nFinal"));
         Estudiantes.leerCSV();
         Tabla.setItems(Estudiantes.lista);
 

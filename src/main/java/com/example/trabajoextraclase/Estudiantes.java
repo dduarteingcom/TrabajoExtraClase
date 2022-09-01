@@ -10,7 +10,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class Estudiantes extends HelloApplication {
+public class Estudiantes extends Main {
 
     private final SimpleStringProperty carne;
     private final SimpleStringProperty nombre;
@@ -176,10 +176,10 @@ public class Estudiantes extends HelloApplication {
 
 
     public static void leerCSV() {
-        String ArchivoCsv = "C:\\Users\\Alvaro Duarte\\Desktop\\Trabajos de Daniel\\Tec" +
-                "\\II Semestre 2022\\Datos I\\TrabajoExtraClase\\src\\main\\java\\com" +
-                "\\example\\trabajoextraclase\\EXCEL_PRUEBA.csv";
+        String ArchivoCsv = "C:\\Users\\Alvaro Duarte\\Documents\\GitHub\\TrabajoExtraClase" +
+                "\\src\\main\\java\\com\\example\\trabajoextraclase\\EXCEL_PRUEBA.csv";
         String FieldDelimiter = ";";
+
 
         BufferedReader lector;
         try {
@@ -194,8 +194,12 @@ public class Estudiantes extends HelloApplication {
                         ,"","","","","","","");
                 EstudiantesB estudiantesB = new EstudiantesB("","","","","","","",""
                         ,"","","","","","","");
+            //System.out.println(estudiantesB.notaFinal(Integer.parseInt(celdas[5]),Integer.parseInt(celdas[6]),Integer.parseInt(celdas[7]),
+                    //Integer.parseInt(celdas[8]),Integer.parseInt(celdas[9]),Integer.parseInt(celdas[10])));
 
-                if (celdas[4]=="A") {
+                if (celdas[11].equals("A")) {
+                    System.out.println(estudiantesA.notaFinal(Integer.parseInt(celdas[5]),Integer.parseInt(celdas[6]),Integer.parseInt(celdas[7]),
+                            Integer.parseInt(celdas[8]),Integer.parseInt(celdas[9]),Integer.parseInt(celdas[10])));
                     estudiantesA.setCarne(celdas[0]);
                     estudiantesA.setNombre(celdas[1]);
                     estudiantesA.setCorreo(celdas[2]);
@@ -211,11 +215,7 @@ public class Estudiantes extends HelloApplication {
                     estudiantesA.setPromEQT(estudiantesA.notaPromedio(Integer.parseInt(celdas[5]),Integer.parseInt(celdas[6]),Integer.parseInt(celdas[7]),0,0,0));
                     estudiantesA.setnFinal(estudiantesA.notaFinal(Integer.parseInt(celdas[5]),Integer.parseInt(celdas[6]),Integer.parseInt(celdas[7]),
                             Integer.parseInt(celdas[8]),Integer.parseInt(celdas[9]),Integer.parseInt(celdas[10])));
-
-
-
-
-
+                    System.out.println(estudiantesA.getnFinal());
 
 
 
@@ -224,6 +224,7 @@ public class Estudiantes extends HelloApplication {
 
                 }
                 else{
+
                     estudiantesB.setCarne(celdas[0]);
                     estudiantesB.setNombre(celdas[1]);
                     estudiantesB.setCorreo(celdas[2]);
@@ -236,11 +237,12 @@ public class Estudiantes extends HelloApplication {
                     estudiantesB.setNotaPro2(celdas[9]);
                     estudiantesB.setNotaPro3(celdas[10]);
                     estudiantesB.setTipoEstud(celdas[11]);
-                    estudiantesB.setPromProyecto(estudiantesB.notaPromedio(Integer.parseInt(celdas[5]),Integer.parseInt(celdas[6]),Integer.parseInt(celdas[7]),0,0,0));
+                    estudiantesB.setPromProyecto(estudiantesB.notaPromedio(0,0,0,Integer.parseInt(celdas[5]),Integer.parseInt(celdas[6]),Integer.parseInt(celdas[7])));
                     estudiantesB.setnFinal(estudiantesB.notaFinal(Integer.parseInt(celdas[5]),Integer.parseInt(celdas[6]),Integer.parseInt(celdas[7]),
                             Integer.parseInt(celdas[8]),Integer.parseInt(celdas[9]),Integer.parseInt(celdas[10])));
                     lista.add(estudiantesB);
                 }
+
             }
 
         } catch (FileNotFoundException ex) {
