@@ -10,12 +10,15 @@ public class EstudiantesB extends Estudiantes {
     public String notaPromedio(int promExam,int promQuices,int promTareas,int notaPro1,int notaPro2,int notaPro3){
         return Integer.toString((notaPro1 + notaPro2 + notaPro3)/3);
     }
+    /*
     @Override
     public String notaFinal(int promExam,int promQuices,int promTareas,int notaPro1,int notaPro2,int notaPro3) {
             int res = 0;
             res = (promExam + promExam + promTareas + notaPro1 + notaPro2 + notaPro3)/6;
             return Integer.toString(res);
     }
+
+     */
 
 }
 

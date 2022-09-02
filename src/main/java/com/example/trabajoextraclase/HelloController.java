@@ -58,7 +58,7 @@ public class HelloController implements Initializable {
     private TableColumn<Estudiantes, String> TipoEstud;
 
     @FXML
-    private TableColumn<Estudiantes, String> nFinal;
+    private TableColumn<Estudiantes, String> NotFinal;
 
     @FXML
     private Label welcomeText;
@@ -79,7 +79,7 @@ public class HelloController implements Initializable {
         TipoEstud.setCellValueFactory(new PropertyValueFactory<Estudiantes,String>( "tipoEstud"));
         PromProyecto.setCellValueFactory(new PropertyValueFactory<Estudiantes,String>( "promProyecto"));
         PromEQT.setCellValueFactory(new PropertyValueFactory<Estudiantes,String>( "promEQT"));
-        nFinal.setCellValueFactory(new PropertyValueFactory<Estudiantes,String>( "nFinal"));
+        NotFinal.setCellValueFactory(new PropertyValueFactory<Estudiantes,String>( "NotFinal"));
         Estudiantes.leerCSV();
         Tabla.setItems(Estudiantes.lista);
 

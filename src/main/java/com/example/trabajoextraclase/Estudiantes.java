@@ -26,20 +26,11 @@ public class Estudiantes extends Main {
     private final SimpleStringProperty tipoEstud;
     private final SimpleStringProperty promProyecto;
     private final SimpleStringProperty promEQT;
-    private final SimpleStringProperty nFinal;
-
-
-
-
-
-
-
-
-
+    private final SimpleStringProperty NotFinal;
 
     public Estudiantes(String carne, String nombre, String correo, String telefono, String nickname, String promExam,
                        String promQuices, String promTareas, String notaPro1, String notaPro2,
-                       String notaPro3, String tipoEstud, String promProyecto,String promEQT,String nFinal) {
+                       String notaPro3, String tipoEstud, String promProyecto,String promEQT,String NotFinal) {
         this.carne = new SimpleStringProperty(carne) ;
         this.nombre =new SimpleStringProperty( nombre);
         this.correo =new SimpleStringProperty( correo);
@@ -54,10 +45,7 @@ public class Estudiantes extends Main {
         this.tipoEstud = new SimpleStringProperty(tipoEstud);
         this.promProyecto =new SimpleStringProperty(promProyecto);
         this.promEQT =new SimpleStringProperty(promEQT);
-        this.nFinal =new SimpleStringProperty(nFinal);
-
-
-
+        this.NotFinal =new SimpleStringProperty(NotFinal);
     }
 
     public String getCarne() {
@@ -116,7 +104,7 @@ public class Estudiantes extends Main {
 
     public void setPromEQT(String promEQT) {this.promEQT.set(promEQT);}
 
-    public void setnFinal(String nFinal) {this.nFinal.set(nFinal);}
+    public void setNotFinal(String NotFinal) {this.NotFinal.set(NotFinal);}
 
     public String getNombre() {
         return nombre.get();
@@ -163,30 +151,25 @@ public class Estudiantes extends Main {
     }
     public String getPromProyecto(){return promProyecto.get();}
     public String getPromEQT() {return promEQT.get();}
-    public String getnFinal() {return nFinal.get();}
+    public String getNotFinal() {return NotFinal.get();}
 
     public String notaPromedio(int promExam, int promQuices, int promTareas, int notaPro1, int notaPro2, int notaPro3){
         return null;
     }
-    public String notaFinal(int promExam,int promQuices,int promTareas,int notaPro1,int notaPro2,int notaPro3) {
-        return null;
+    public static String notaFinal(int promExam,int promQuices,int promTareas,int notaPro1,int notaPro2,int notaPro3) {
+        int res = 0;
+        res = (promQuices + promExam + promTareas + notaPro1 + notaPro2 + notaPro3)/6;
+        return Integer.toString(res);
     }
     public static ObservableList<Estudiantes> lista = FXCollections.observableArrayList();
 
-
-
     public static void leerCSV() {
-        String ArchivoCsv = "C:\\Users\\Alvaro Duarte\\Documents\\GitHub\\TrabajoExtraClase" +
-                "\\src\\main\\java\\com\\example\\trabajoextraclase\\EXCEL_PRUEBA.csv";
+        String ArchivoCsv = "src/main/java/com/example/trabajoextraclase/EXCEL_PRUEBA.csv";
         String FieldDelimiter = ";";
-
-
         BufferedReader lector;
         try {
             lector = new BufferedReader(new FileReader(ArchivoCsv));
             String linea;
-
-
 
             while ((linea = lector.readLine()) != null) {
                 String[] celdas = linea.split(FieldDelimiter, -1);
@@ -194,9 +177,6 @@ public class Estudiantes extends Main {
                         ,"","","","","","","");
                 EstudiantesB estudiantesB = new EstudiantesB("","","","","","","",""
                         ,"","","","","","","");
-            //System.out.println(estudiantesB.notaFinal(Integer.parseInt(celdas[5]),Integer.parseInt(celdas[6]),Integer.parseInt(celdas[7]),
-                    //Integer.parseInt(celdas[8]),Integer.parseInt(celdas[9]),Integer.parseInt(celdas[10])));
-
                 if (celdas[11].equals("A")) {
                     System.out.println(estudiantesA.notaFinal(Integer.parseInt(celdas[5]),Integer.parseInt(celdas[6]),Integer.parseInt(celdas[7]),
                             Integer.parseInt(celdas[8]),Integer.parseInt(celdas[9]),Integer.parseInt(celdas[10])));
@@ -213,15 +193,10 @@ public class Estudiantes extends Main {
                     estudiantesA.setNotaPro3(celdas[10]);
                     estudiantesA.setTipoEstud(celdas[11]);
                     estudiantesA.setPromEQT(estudiantesA.notaPromedio(Integer.parseInt(celdas[5]),Integer.parseInt(celdas[6]),Integer.parseInt(celdas[7]),0,0,0));
-                    estudiantesA.setnFinal(estudiantesA.notaFinal(Integer.parseInt(celdas[5]),Integer.parseInt(celdas[6]),Integer.parseInt(celdas[7]),
+                    estudiantesA.setNotFinal(Estudiantes.notaFinal(Integer.parseInt(celdas[5]),Integer.parseInt(celdas[6]),Integer.parseInt(celdas[7]),
                             Integer.parseInt(celdas[8]),Integer.parseInt(celdas[9]),Integer.parseInt(celdas[10])));
-                    System.out.println(estudiantesA.getnFinal());
-
-
-
+                    System.out.println(estudiantesA.getNotFinal());
                     lista.add(estudiantesA);
-
-
                 }
                 else{
 
@@ -238,7 +213,7 @@ public class Estudiantes extends Main {
                     estudiantesB.setNotaPro3(celdas[10]);
                     estudiantesB.setTipoEstud(celdas[11]);
                     estudiantesB.setPromProyecto(estudiantesB.notaPromedio(0,0,0,Integer.parseInt(celdas[5]),Integer.parseInt(celdas[6]),Integer.parseInt(celdas[7])));
-                    estudiantesB.setnFinal(estudiantesB.notaFinal(Integer.parseInt(celdas[5]),Integer.parseInt(celdas[6]),Integer.parseInt(celdas[7]),
+                    estudiantesB.setNotFinal(Estudiantes.notaFinal(Integer.parseInt(celdas[5]),Integer.parseInt(celdas[6]),Integer.parseInt(celdas[7]),
                             Integer.parseInt(celdas[8]),Integer.parseInt(celdas[9]),Integer.parseInt(celdas[10])));
                     lista.add(estudiantesB);
                 }
@@ -254,8 +229,6 @@ public class Estudiantes extends Main {
         }
 
     }
-
-
 }
 
 
