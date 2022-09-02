@@ -38,15 +38,15 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-<<<<<<< HEAD
-=======
+
+
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
->>>>>>> 73c933e (Initial commit)
+
     </dependencies>
 
     <build>

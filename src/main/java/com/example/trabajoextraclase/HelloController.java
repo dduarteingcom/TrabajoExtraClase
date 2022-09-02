@@ -58,7 +58,7 @@ public class HelloController implements Initializable {
     private TableColumn<Estudiantes, String> TipoEstud;
 
     @FXML
-    private TableColumn<Estudiantes, String> NotFinal;
+private TableColumn<Estudiantes, String> NotFinal;
 
     @FXML
     private Label welcomeText;

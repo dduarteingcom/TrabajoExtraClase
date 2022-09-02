@@ -167,6 +167,7 @@ public class Estudiantes extends Main {
         String ArchivoCsv = "src/main/java/com/example/trabajoextraclase/EXCEL_PRUEBA.csv";
         String FieldDelimiter = ";";
         BufferedReader lector;
+        System.out.println("hola");
         try {
             lector = new BufferedReader(new FileReader(ArchivoCsv));
             String linea;
